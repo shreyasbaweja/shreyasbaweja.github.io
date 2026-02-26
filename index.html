@@ -3,57 +3,361 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shreyas Baweja - Senior Product Leader. MBA-trained with 9+ years experience scaling ecommerce and personalisation ecosystems.">
     <title>Shreyas Baweja | Senior Product Leader</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --primary: #0f172a; --secondary: #2563eb; --bg: #f8fafc; --text: #334155; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; }
-        nav { background: white; padding: 1rem 5%; display: flex; justify-content: space-between; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; }
-        header { background: var(--primary); color: white; padding: 80px 5%; text-align: center; }
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 30px; border: 1px solid #f1f5f9; }
-        h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        h2 { color: var(--primary); border-bottom: 3px solid var(--secondary); display: inline-block; margin-bottom: 25px; }
-        .tag { background: #eff6ff; color: var(--secondary); padding: 5px 15px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; margin: 5px; display: inline-block; }
-        .impact { list-style: none; padding: 0; }
-        .impact li::before { content: "→ "; color: var(--secondary); font-weight: bold; }
-        a { color: var(--secondary); text-decoration: none; font-weight: 600; }
+        /* CSS Variables for highly maintainable theming */
+        :root {
+            --slate-900: #0f172a;
+            --slate-800: #1e293b;
+            --slate-600: #475569;
+            --slate-500: #64748b;
+            --slate-100: #f1f5f9;
+            --slate-50: #f8fafc;
+            --blue-600: #2563eb;
+            --blue-500: #3b82f6;
+            --sky-400: #38bdf8;
+            --emerald-500: #10b981;
+            
+            --max-width: 1000px;
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Modern CSS Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--slate-50);
+            color: var(--slate-800);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
+        h2 { font-size: clamp(2rem, 4vw, 2.5rem); color: var(--slate-900); margin-bottom: 3rem; text-align: center; }
+        
+        /* Glassmorphism Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand { font-weight: 800; font-size: 1.25rem; color: var(--slate-900); text-decoration: none; letter-spacing: -0.5px; }
+        
+        .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+        .nav-link { color: var(--slate-600); text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
+        .nav-link:hover { color: var(--blue-600); }
+        .btn-primary { background: var(--blue-600); color: white; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 600; text-decoration: none; transition: var(--transition-smooth); }
+        .btn-primary:hover { background: var(--blue-500); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2); }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--slate-900) 0%, var(--slate-800) 100%);
+            color: white;
+            padding: 180px 5% 100px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--sky-400);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); letter-spacing: -1.5px; margin-bottom: 1.5rem; }
+        .hero p { font-size: clamp(1.1rem, 2vw, 1.25rem); color: var(--slate-500); max-width: 700px; margin: 0 auto; font-weight: 400; }
+
+        /* Main Container */
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 5rem 1.5rem; }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--slate-100);
+        }
+
+        .skill-category h3 { color: var(--slate-900); font-size: 1.2rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .skill-category h3::before { content: ''; display: block; width: 12px; height: 12px; border-radius: 50%; background: var(--blue-500); }
+
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+        .tag {
+            background: var(--slate-50);
+            color: var(--slate-600);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border: 1px solid var(--slate-100);
+            transition: var(--transition-smooth);
+        }
+        .tag:hover { background: var(--blue-50); color: var(--blue-600); border-color: var(--blue-100); transform: translateY(-2px); }
+
+        /* Experience Timeline */
+        .timeline { position: relative; }
+        .timeline::before {
+            content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 2px; background: var(--slate-100);
+        }
+
+        .job-card {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .job-card::before {
+            content: ''; position: absolute; left: -5px; top: 6px; width: 12px; height: 12px;
+            border-radius: 50%; background: white; border: 2px solid var(--blue-500);
+            box-shadow: 0 0 0 4px var(--slate-50);
+        }
+
+        .job-header { margin-bottom: 1.5rem; }
+        .job-title { font-size: 1.5rem; color: var(--slate-900); }
+        .job-company { font-size: 1.1rem; color: var(--blue-600); font-weight: 600; margin-top: 0.25rem; }
+        .job-date { font-size: 0.9rem; color: var(--slate-500); font-weight: 500; display: block; margin-top: 0.25rem; }
+
+        .impact-list { list-style: none; }
+        .impact-list li {
+            position: relative; padding-left: 1.5rem; margin-bottom: 1rem; color: var(--slate-600);
+        }
+        .impact-list li::before {
+            content: '→'; position: absolute; left: 0; color: var(--blue-500); font-weight: 700;
+        }
+        .impact-list strong { color: var(--slate-900); font-weight: 600; }
+
+        /* Highlight Metrics Cards */
+        .metrics-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem; margin-top: 1.5rem; margin-bottom: 2rem;
+        }
+        .metric {
+            background: white; padding: 1.25rem; border-radius: 12px; border: 1px solid var(--slate-100);
+            border-left: 4px solid var(--blue-500);
+        }
+        .metric-value { display: block; font-size: 1.5rem; font-weight: 800; color: var(--slate-900); }
+        .metric-label { font-size: 0.8rem; color: var(--slate-500); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* Education & Consulting */
+        .edu-card {
+            background: white; padding: 2rem; border-radius: 16px; margin-bottom: 1.5rem;
+            border: 1px solid var(--slate-100); transition: var(--transition-smooth);
+        }
+        .edu-card:hover { box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1); transform: translateY(-3px); }
+
+        /* Scroll Animation Classes */
+        .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition-smooth); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Footer */
+        footer { background: var(--slate-900); color: var(--slate-500); text-align: center; padding: 3rem 1.5rem; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Simplified mobile nav */
+            .job-card { padding-left: 2rem; }
+        }
     </style>
 </head>
 <body>
-    <nav>
-        <div style="font-weight:700">SHREYAS BAWEJA</div>
-        <div><a href="mailto:shreyasbaweja@gmail.com">Contact Me</a></div>
+
+    <nav class="navbar">
+        <a href="#" class="nav-brand">SB.</a>
+        <div class="nav-links">
+            <a href="#skills" class="nav-link">Expertise</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="mailto:shreyasbaweja@gmail.com" class="btn-primary">Contact Me</a>
+        </div>
     </nav>
-    <header>
-        <h1>Shreyas Baweja</h1>
-        <p>Product Lead | Strategy • Growth • Optimization [cite: 2, 190]</p>
+
+    <header class="hero">
+        <span class="hero-badge">9+ Years Experience</span>
+        <h1>Senior Product Leader</h1>
+        <p>MBA-trained leader architecting high-velocity ecosystems, scaling 0-to-1 verticals, and translating complex technical migrations into aggressive commercial growth.</p>
     </header>
-    <div class="container">
-        <h2>Core Expertise</h2>
-        <div>
-            <span class="tag">CRO [cite: 17, 110, 250]</span><span class="tag">0-to-1 Scale [cite: 12, 106, 164]</span>
-            <span class="tag">API Strategy [cite: 56, 151, 219]</span><span class="tag">LTV Optimization [cite: 54, 149, 216]</span>
-        </div>
-        <br>
-        <h2>Key Milestones</h2>
-        <div class="card">
-            <h3>Product Lead @ Outfittery [cite: 48, 143, 195]</h3>
-            <p><strong>Impact:</strong></p>
-            <ul class="impact">
-                <li>Managed <strong>€80M+</strong> multi-platform ecosystem[cite: 50, 145, 197].</li>
-                <li>Delivered <strong>€3M+</strong> incremental revenue via Preview UX overhaul[cite: 52, 147, 200].</li>
-                <li>Scaled Womenswear vertical to <strong>€20M ARR</strong>.</li>
-                <li>Improved mobile stability to <strong>>99% crash-free</strong> users[cite: 63, 159, 217].</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3>Strategic Projects [cite: 85, 88, 235, 237]</h3>
-            <ul class="impact">
-                <li><strong>Porsche Consulting:</strong> Digital-first partnership framework for Tier-1 automotive[cite: 85, 180, 236].</li>
-                <li><strong>Thing-it (Mazemap):</strong> 350% lead growth & 20x customer expansion[cite: 88, 182, 238].</li>
-            </ul>
-        </div>
-    </div>
+
+    <main>
+        <section id="skills" class="container reveal">
+            <h2>Product Ecosystem & Expertise</h2>
+            <div class="skills-grid">
+                <article class="skill-category">
+                    <h3>Growth & Optimization</h3>
+                    <div class="tag-cloud">
+                        <span class="tag">CRO</span><span class="tag">A/B & MVT Testing</span>
+                        <span class="tag">Product-Led Growth</span><span class="tag">Subscription Monetization</span>
+                        <span class="tag">LTV to CAC Ratio</span><span class="tag">Churn Reduction</span>
+                    </div>
+                </article>
+                
+                <article class="skill-category">
+                    <h3>Platform & Technical</h3>
+                    <div class="tag-cloud">
+                        <span class="tag">API-First Modernization</span><span class="tag">Machine Learning Integration</span>
+                        <span class="tag">Fintech / Payments</span><span class="tag">Bespoke CMS</span>
+                        <span class="tag">Systemic Scalability</span>
+                    </div>
+                </article>
+
+                <article class="skill-category">
+                    <h3>Analytics Stack</h3>
+                    <div class="tag-cloud">
+                        <span class="tag">Mixpanel</span><span class="tag">Amplitude</span>
+                        <span class="tag">Tableau</span><span class="tag">SQL</span>
+                        <span class="tag">Hotjar</span><span class="tag">Google Analytics</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="experience" class="container reveal">
+            <h2>Professional Impact</h2>
+            <div class="timeline">
+                
+                <article class="job-card">
+                    <div class="job-header">
+                        <h3 class="job-title">Product Lead</h3>
+                        <div class="job-company">Outfittery GmbH</div>
+                        <span class="job-date">Sep 2024 – Aug 2025 | Berlin</span>
+                    </div>
+                    <div class="metrics-grid">
+                        <div class="metric"><span class="metric-value">€80M+</span><span class="metric-label">Portfolio Scope</span></div>
+                        <div class="metric"><span class="metric-value">€3M+</span><span class="metric-label">Revenue Uplift</span></div>
+                        <div class="metric"><span class="metric-value">7+ Days</span><span class="metric-label">Processing Speed</span></div>
+                    </div>
+                    <ul class="impact-list">
+                        <li>Served as single-threaded owner for entire customer portfolio (Web/iOS/Android), balancing aggressive monetization with platform reliability.</li>
+                        <li>Orchestrated a behavioural overhaul of the Preview UX, generating incremental revenue and a <strong>15% lift in retention</strong>.</li>
+                        <li>Engineered proprietary post-return workflows for <strong>€2.5M+ monthly volume</strong> to reduce operational friction.</li>
+                        <li>Spearheaded full-funnel CRO across high-intent touchpoints, driving sustainable gains in Customer Lifetime Value.</li>
+                    </ul>
+                </article>
+
+                <article class="job-card reveal">
+                    <div class="job-header">
+                        <h3 class="job-title">Senior Product Manager</h3>
+                        <div class="job-company">Outfittery GmbH</div>
+                        <span class="job-date">Sep 2022 – Aug 2024 | Berlin</span>
+                    </div>
+                    <ul class="impact-list">
+                        <li>Owned UK market entry targeting <strong>€5M ARR</strong>, managing full execution from GTM strategy to phased rollout.</li>
+                        <li>Delivered <strong>>100% uplift in customer conversion</strong> by optimizing the full-funnel lifecycle and validating new pricing models.</li>
+                        <li>Partnered with Engineering to elevate mobile app performance, improving stability to <strong>>99% crash-free users</strong>.</li>
+                        <li>Reduced churn by 5% and increased LTV by €80 via full redesign of the returns logistics tool.</li>
+                    </ul>
+                </article>
+
+                <article class="job-card reveal">
+                    <div class="job-header">
+                        <h3 class="job-title">Product Manager (Venture Launch)</h3>
+                        <div class="job-company">Outfittery GmbH</div>
+                        <span class="job-date">Jul 2021 – Aug 2022 | Berlin</span>
+                    </div>
+                    <ul class="impact-list">
+                        <li>Spearheaded Womenswear MVP launch, scaling profitably to <strong>€20M ARR</strong> through iterative expansion.</li>
+                        <li>Released "PayNow" fintech product, optimizing order-to-cash process and eliminating payment workflow errors.</li>
+                        <li>Established core analytics infrastructure (Mixpanel/Amplitude), embedding A/B testing into the development lifecycle.</li>
+                    </ul>
+                </article>
+
+                <article class="job-card reveal">
+                    <div class="job-header">
+                        <h3 class="job-title">Software Business Analyst</h3>
+                        <div class="job-company">Infosys Ltd.</div>
+                        <span class="job-date">Feb 2015 – Jul 2019 | Chandigarh</span>
+                    </div>
+                    <ul class="impact-list">
+                        <li>Delivered regulatory and infrastructure solutions for Tier-1 financial institutions including <strong>Morgan Stanley, RBS, and Amex</strong>.</li>
+                        <li>Led Corrective Action Projects (CAPs) mapping end-to-end workflows to resolve recurring system bottlenecks.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="container reveal">
+            <h2>Strategy & Education</h2>
+            
+            <article class="edu-card">
+                <h3 class="job-title">Strategic Consulting & Impact Projects</h3>
+                <ul class="impact-list" style="margin-top: 1rem;">
+                    <li><strong>Porsche Consulting:</strong> Architected a digital-first partnership framework for a Tier-1 automotive client navigating mobility transformation.</li>
+                    <li><strong>Thing-it GmbH (Mazemap):</strong> Led B2B strategy overhaul, driving <strong>350% lead growth</strong> and 20x customer expansion.</li>
+                    <li><strong>Wordpandit:</strong> Built growth strategy increasing website traffic 70% YoY and qualified leads by 50%.</li>
+                </ul>
+            </article>
+
+            <article class="edu-card">
+                <h3 class="job-title">Master of Business Administration</h3>
+                <div class="job-company">Frankfurt School of Finance and Management | 2020</div>
+                <p style="color: var(--slate-600); margin-top: 0.5rem;">Core Focus: Data Analytics, Corporate Finance, Competitive Strategy, and Operations Management.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Shreyas Baweja. All Rights Reserved.</p>
+        <p style="margin-top: 0.5rem;"><a href="https://www.linkedin.com/in/shreyasbaweja/" style="color:var(--sky-400); text-decoration:none;">Connect on LinkedIn</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); // Stop observing once revealed for performance
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
 </body>
 </html>
